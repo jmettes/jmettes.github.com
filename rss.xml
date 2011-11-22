@@ -1,0 +1,40 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+  <channel>
+
+    <title>jmettes</title>
+    <link>http://{{ site.domain }}/</link>
+    <atom:link type="application/atom+xml" rel="self" href="http://{{ site.domain }}/atom.xml"/>
+    <description>Stuff by jmettes</description>
+    <language>en-gb</language>
+    <id>http://{{ site.domain }}/</id>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M%:%S %z" }}</lastBuildDate>
+
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>http://{{ site.domain }}{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate> 
+      <author>jmettes</author>
+      <guid>http://{{ site.domain }}{{ post.id }}</guid>
+      <description>
+        {% if post.image %}
+        &lt;p&gt;&lt;img src='{{ post.image[0] | xml_escape }}' /&gt;&lt;/p&gt;
+        {% elsif post.video %}
+        &lt;iframe src='{{ post.video | xml_escape }}' /&gt;
+        {% elsif post.music %}
+        &lt;a href='{{ post.music | xml_escape }}'&gt;&lt;/a&gt;
+        {% endif %}
+        {{ post.content | xml_escape }}
+      </description>
+    </item>
+    {% endfor %}
+
+  </channel>
+
+</rss>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>{{ page.title }} - jmettes</title>
+<link rel="canonical" href="http://{{ site.domain }}{{ page.url }}" />
+<link title="jmettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
+<link type="text/css" rel="stylesheet" href="/css/style.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Permanent+Marker&v1'/>
+</head>
+<body>
+<div id="wrapper">
+<div id="bg"><a href="/"></a></div>
+<div class="post">
+<h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+<div id="content">
+{% include post-type.html %}
+{{ content }}
+</div>
+<div id="paginate">
+{% if page.previous.url %}
+<a href="{{ page.previous.url }}" id="previous">Older &gt;</a>
+{% endif %}
+{% if page.next.url %}
+<a href="{{ page.next.url }}" id="next">&lt; Newer</a>
+{% endif %}
+</div>
+</div>
+</div>
+</body>
+</html>

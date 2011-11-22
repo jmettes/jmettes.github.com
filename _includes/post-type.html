@@ -1,0 +1,14 @@
+{% if page.image or page.video or page.audio %} {% assign p = page %} {% else %} {% assign p = post %} {% endif %}
+{% if p.image %}
+<div class="image">
+<img src="{{ p.image[0] }}" alt="{{ p.image[1] }}" width="480" />
+</div>
+{% elsif p.video %}
+<div class="video">
+<iframe src="{{ p.video }}" width="450" height="313" frameborder="0" allowTransparency="true"></iframe>
+</div>
+{% elsif p.audio %}
+<div class="audio">
+<a href="{{ p.audio[0] }}" class="sc-player">{{ p.audio[1] }}</a>
+</div>
+{% endif %}

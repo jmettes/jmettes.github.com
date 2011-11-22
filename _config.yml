@@ -1,0 +1,6 @@
+permalink: /:year/:month/:title
+pygments: true
+exclude: ['README']
+paginate: 2
+
+domain: jmettes.com

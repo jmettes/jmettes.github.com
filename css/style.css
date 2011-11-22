@@ -1,0 +1,248 @@
+body {
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #333;
+  background-color: #fff;
+  margin-bottom: 8em;
+}
+a {
+  color: #888;
+  text-decoration: none;
+}
+a:hover {
+  color: #555;
+}
+a img {
+  border: 0;
+}
+h2 a {
+  color: #333;
+}
+code {
+  font-family: monospace;
+  background-color: #eee;
+  white-space: pre;
+  padding: 3px;
+}
+p code {
+  font-size: .8em;
+}
+#wrapper {
+  width: 420px;
+  margin: 0 auto 0 auto;
+}
+#bg {
+    background: url('http://sites.google.com/site/jmettes/blogfiles/drawn5.png') no-repeat;
+    width: 317px;
+    height: 437px;
+    margin: 30px auto -230px -170px;
+}
+#bg a {
+  display: block;
+  width: 204px;
+  height: 220px;
+  margin-left: 85px;
+  border: 0;
+}
+#bg a:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 206px;
+  margin-left: -88px;
+  padding-top: 119px;
+}
+.post {
+  margin: 4em 0;
+}
+.post h2 {
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 1.8em;
+    line-height: .8em;
+    margin-bottom: 5px;
+    width: 397px;
+    text-shadow: 0 0 1px rgba(51, 51, 51, 0.1);
+    padding: 5px 5px 10px 10px;
+    border-radius: 3px;
+}
+.post p {
+  font-size: 1.2em;
+  margin-left: 4px;
+}
+
+/*
+* Post types
+*/
+
+.post .image:before, .post .video:before {
+  content: '';
+  display: block;
+  width: 420px;
+  height: 4px;
+  background: url('/images/border-top.png') no-repeat;
+}
+.post .image, .post .video {
+  background: url('/images/border-middle.png') repeat-y;
+}
+.post .image img, .post .video iframe {
+  background: url('/images/border-bottom.png') bottom no-repeat;
+  padding: 6px 10px 10px 10px;
+  width: 400px;
+  vertical-align: top; /* remove space below image */
+}
+.post .audio:before {
+  content: '';
+  display: block;
+  width: 420px;
+  height: 4px;
+  background: url('/images/border-top.png') no-repeat;
+}
+.post .audio {
+  background: url('/images/border-middle.png') repeat-y;
+}
+.post .audio:after {
+  content: '';
+  display: block;
+  width: 420px;
+  height: 4px;
+  background: url('/images/border-bottom.png') bottom no-repeat;
+}
+
+/*
+* Pagination
+*/
+
+#paginate:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+#paginate a {
+  font-family: 'Permanent Marker', serif;
+  font-size: 1.4em;
+  color: #fff;
+  background-color: #333;
+  padding: 0 10px;
+  border-radius: 3px;
+  margin-top: 50px;
+}
+#previous {
+  float: right;
+  display: block;
+}
+#next {
+  float: left;
+  display: block;
+}
+#index-previous {
+  float: left;
+  display: block;
+}
+#index-next {
+  float: right;
+  display: block;
+}
+#loading {
+  width: 70px;
+  margin: 0 auto;
+  display: none;
+  color: #000;
+  font-size: x-small;
+}
+
+/*
+* SoundCloud player
+*/
+
+.sc-player {
+  margin: 6px 10px;
+  background-color: #e3e3e3;
+  width: 460px;
+  padding: 10px;
+  overflow: hidden;
+}
+.sc-controls {
+  float: left;
+}
+.sc-play {
+  display: block;
+  padding: 0 20px 20px 20px;
+  background-color: #333;
+  border-radius: 3px;
+  margin: 0 10px 0 0;
+  width: 10px;
+  text-indent: -999px;
+}
+.sc-play:after {
+  content: '';
+  display: block;
+  border: 15px solid #fff;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  height: 0.001px;
+  width: 0.001px;
+}
+.sc-player .sc-controls a.sc-pause {
+  display: none;
+}
+.sc-player.playing .sc-controls a.sc-play {
+  display: none;
+}
+.sc-player.playing .sc-controls a.sc-pause {
+  display: block;
+  text-indent: -999px;
+  padding: 20px 0 20px 13px;
+  background-color: #333;
+  width: 37px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+.sc-player .sc-controls a.sc-pause:before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 30px;
+  background-color: #fff;
+  float: left;
+}
+.sc-player.playing .sc-controls a.sc-pause:after {
+  content: '';
+  display: block;
+  background-color: #fff;
+  width: 10px;
+  height: 29px;
+  margin-left: 15px;
+  margin-top: -19px;
+}
+.sc-scrubber, .sc-time-span, .sc-waveform-container, .sc-buffer, .sc-played, .sc-waveform-container img {
+  width: 400px;
+  height: 70px;
+  overflow: hidden;
+}
+.sc-scrubber .sc-buffer, .sc-scrubber .sc-played {
+  margin-top: -70px;
+}
+.sc-buffer {
+  background-color: #eee;
+  opacity: 0.4;
+  width: 0;
+}
+.sc-played {
+  background-color: #f00;
+  opacity: 0.1;
+  width: 0;
+}
+.sc-waveform-container {
+  background-color: #333;
+}
+.sc-waveform-container img {
+  vertical-align: top;
+}
+.sc-trackslist {
+  display: none;
+}
+.sc-player-engine-container {
+  width: 1px;
+  height: 1px;
+}
