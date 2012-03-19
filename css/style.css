@@ -1,3 +1,4 @@
+.clear { clear: both; }
 body {
   font-family: sans-serif;
   font-size: 100%;
@@ -32,10 +33,11 @@ p code {
   margin: 0 auto 0 auto;
 }
 #bg {
-    background: url('http://sites.google.com/site/jmettes/blogfiles/drawn5.png') no-repeat;
-    width: 317px;
-    height: 437px;
-    margin: 30px auto -200px -200px;
+  float: left;
+  background: url('/images/logo.png') no-repeat;
+  width: 317px;
+  height: 437px;
+  margin: 30px auto -200px -245px;
 }
 #bg a {
   display: block;
@@ -51,6 +53,31 @@ p code {
   height: 206px;
   margin-left: -88px;
   padding-top: 119px;
+}
+#blurb {
+  float: left;
+  background: url('/images/balloon.png') no-repeat;
+  font-family: 'Permanent Marker';
+  width: 357px;
+  height: 153px;
+  margin-top: 100px;
+}
+#blurb p {
+  margin: 0;
+  padding: 0 0 0 75px;
+  width: 260px;
+}
+#blurb p:first-child {
+  font-size: 1.9em;
+  padding-top: 10px;
+}
+#blurb p:first-child + p {
+  font-size: 1.25em;
+  line-height: 1em;
+  padding-bottom: 5px;
+}
+#blurb p:first-child + p + p {
+  font-size: 0.8em;
 }
 .post {
   margin: 4em 0;
@@ -82,7 +109,7 @@ p code {
 */
 
 .post .image img, .post .video iframe, .post .audio {
-  border: 3px solid #aaa;
+  border: 3px solid #333;
   padding: 6px;
   width: 400px;
 }
