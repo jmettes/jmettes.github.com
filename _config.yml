@@ -1,4 +1,4 @@
-permalink: /:year/:month/:title
+permalink: /:title
 pygments: true
 exclude: ['README']
 paginate: 2

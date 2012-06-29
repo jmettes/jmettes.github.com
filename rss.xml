@@ -23,13 +23,6 @@ layout: nil
       <author>jmettes</author>
       <guid>http://{{ site.domain }}{{ post.id }}</guid>
       <description>
-        {% if post.image %}
-        &lt;p&gt;&lt;img src='{{ post.image[0] | xml_escape }}' /&gt;&lt;/p&gt;
-        {% elsif post.video %}
-        &lt;iframe src='{{ post.video | xml_escape }}' /&gt;
-        {% elsif post.music %}
-        &lt;a href='{{ post.music | xml_escape }}'&gt;&lt;/a&gt;
-        {% endif %}
         {{ post.content | xml_escape }}
       </description>
     </item>

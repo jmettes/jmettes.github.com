@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+<title>Drawing concave shapes - Experiments</title>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+#canvas {
+ position: absolute;
+}
+#draw {
+  background-color: rgba(5, 5, 5, .03);
+}
+</style>
+</head>
+<body>
+
+<canvas id="canvas" width="400" height="410"></canvas>
+<canvas id="draw" width="400" height="410"></canvas>
+
+<script src="Box2d.min.js"></script>
+<script src="bourke.js"></script>
+<script src="triangulate.js"></script>
+
+<script>
+var canvas = document.getElementById('canvas'),
+    ctx = canvas.getContext('2d');
+
+var draw = document.getElementById('draw'),
+    ctx2 = draw.getContext('2d'),
+
+    b2Vec2 = Box2D.Common.Math.b2Vec2,
+    b2BodyDef = Box2D.Dynamics.b2BodyDef,
+    b2Body = Box2D.Dynamics.b2Body,
+    b2FixtureDef = Box2D.Dynamics.b2FixtureDef,
+    b2Fixture = Box2D.Dynamics.b2Fixture,
+    b2World = Box2D.Dynamics.b2World,
+    b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape,
+    b2DebugDraw = Box2D.Dynamics.b2DebugDraw,
+
+    scaledPoints = [],
+    _ratio = 30,
+    _friction = 0.8,
+    _restitution = 0.3,
+    _density = 0.7,
+    _pixel_dist = 20,
+    _objPoints = [],
+    _borderSize = 4,
+    _polyWidth, _endX, _mouseLastX, _polyHeight, _endY, _mouseLastY,
+    mousedown = false,
+
+    world = new b2World(new b2Vec2(0, 10.0), false),
+    floor = new b2BodyDef,
+    fixture = new b2FixtureDef;
+
+
+/* setup debug draw */
+var debugDraw = new b2DebugDraw;
+debugDraw.SetSprite(ctx);
+debugDraw.SetDrawScale(_ratio);
+debugDraw.SetFillAlpha(0.3);
+debugDraw.SetLineThickness(1.0);
+debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
+world.SetDebugDraw(debugDraw);
+      
+floor.type = b2Body.b2_staticBody;
+floor.position.x = (0 + (400 / 2)) / _ratio;
+floor.position.y = (340 + (100 / 2)) / _ratio;
+
+fixture.shape = new b2PolygonShape;
+fixture.shape.SetAsBox((390 / 2) / _ratio, (30 / 2) / _ratio);
+         
+world.CreateBody(floor).CreateFixture(fixture);
+
+canvas.addEventListener('mousedown', mouseDown, false);
+canvas.addEventListener('mousemove', mouseMove, false);
+canvas.addEventListener('mouseup', mouseUp, false);
+
+window.setInterval(function () {
+  world.Step(
+    1 / 60, //frame-rate
+    10, //velocity iterations
+    10 //position iterations
+  );
+
+  world.ClearForces();
+  world.DrawDebugData();
+
+/*
+  var tmpBody = world.GetBodyList();
+  while (tmpBody != null) {
+    if (!tmpBody.IsAwake() && tmpBody.GetType() === b2Body.b2_dynamicBody) {
+      _world.DestroyBody(tmpBody);
+    }
+    tmpBody = tmpBody.GetNext();
+  }
+*/
+
+}, 1000 / 60);
+
+function mouseDown (evt) {
+  draw.width = draw.width;
+  ctx2.beginPath();
+//  ctx2.strokeStyle = "#ffffff";
+  ctx2.moveTo(evt.offsetX, evt.offsetY);
+
+  mousedown = true;
+  _polyWidth = _endX = _mouseLastX = evt.offsetX;
+  _polyHeight = _endY = _mouseLastY = evt.offsetY;
+
+  scaledPoints = [];
+  _objPoints = [];
+
+  _objPoints.push({ x: _mouseLastX, y: _mouseLastY });
+}
+
+function mouseMove (evt) {
+  var dist_x = evt.offsetX - _mouseLastX;
+  var dist_y = evt.offsetY - _mouseLastY;
+
+  if (dist_x * dist_x + dist_y * dist_y > _pixel_dist * _pixel_dist) {
+    if(mousedown) {
+      ctx2.lineTo(evt.offsetX, evt.offsetY);
+      ctx2.stroke();
+    }
+
+    _objPoints.push({ x: evt.offsetX, y: evt.offsetY });
+    _mouseLastX = evt.offsetX;
+    _mouseLastY = evt.offsetY;
+
+    if (evt.offsetX < 0 && _polyWidth <= 0) {
+      if (_polyWidth < evt.offsetX) {
+        _polyWidth = evt.offsetX;
+      }
+    } else {
+      if (_polyWidth < evt.offsetX) {
+        _polyWidth = evt.offsetX;
+      }
+    }
+
+    if(evt.offsetY < 0 && _polyHeight <= 0) {
+      if (_polyHeight < evt.offsetY) {
+        _polyHeight = evt.offsetY;
+      }
+    } else {
+      if (_polyHeight < evt.offsetY) {
+        _polyHeight = evt.offsetY;
+      }
+    }
+
+    if (_endX > evt.offsetX) {
+      _endX = evt.offsetX;
+    }
+
+    if (_endY > evt.offsetY) {
+      _endY = evt.offsetY;
+    }
+  }
+}
+
+function mouseUp (evt) {
+  mousedown = false;
+  ctx2.closePath();
+  ctx2.stroke();
+
+  _polyWidth = Math.abs(_polyWidth - _endX) + _borderSize;
+  _polyHeight = Math.abs(_polyHeight - _endY) + _borderSize;
+
+  _endX = _endX - _borderSize / 2;
+  _endY = _endY - _borderSize / 2;
+
+  var cx = _endX + (_polyWidth / 2);
+  var cy = _endY + (_polyHeight / 2);
+
+  for (var i = 0; i < _objPoints.length; i++) {
+    scaledPoints.push(new b2Vec2((_objPoints[i].x - cx) / _ratio, (_objPoints[i].y - cy) / _ratio));
+  }
+
+  var complex = false;
+  var boxShape = new b2PolygonShape();
+
+  if (ClockWise(scaledPoints) === CLOCKWISE) {
+    scaledPoints.reverse();
+  }
+
+  if (Convex(scaledPoints) === CONCAVE) {
+    complex = true;
+  }
+
+  var fixDef;
+  var bodyDef = new b2BodyDef();
+
+  bodyDef.position.x = cx / _ratio;
+  bodyDef.position.y = cy / _ratio;
+  bodyDef.type = b2Body.b2_dynamicBody;
+
+  var obj = world.CreateBody(bodyDef);
+
+  if (complex) {
+    var tmp = process(scaledPoints);
+    if (tmp != null) {
+      for (i = 0; i < tmp.length; i = i + 3) {
+        boxShape = new b2PolygonShape();
+        boxShape.SetAsArray(new Array(tmp[i], tmp[i + 1], tmp[i + 2]));
+        fixDef = new b2FixtureDef();
+        fixDef.density = _density;
+        fixDef.restitution = _restitution;
+        fixDef.friction = _friction;
+        fixDef.shape = boxShape;
+
+        obj.CreateFixture(fixDef);
+      }
+    } else {
+      draw.width = draw.width;
+    }
+  } else {
+    boxShape.SetAsArray(scaledPoints, scaledPoints.length);
+    fixDef = new b2FixtureDef();
+    fixDef.density = _density;
+    fixDef.restitution = _restitution;
+    fixDef.friction = _friction;
+    fixDef.shape = boxShape;
+
+    obj.CreateFixture(fixDef);
+  }
+}
+</script>
+</body></html>
