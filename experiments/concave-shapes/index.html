@@ -74,6 +74,9 @@ fixture.shape.SetAsBox((390 / 2) / _ratio, (30 / 2) / _ratio);
          
 world.CreateBody(floor).CreateFixture(fixture);
 
+ctx2.font = "bold 30px sans-serif";
+ctx2.fillText("Click and drag", canvas.width / 4, canvas.height / 2);
+
 canvas.addEventListener('mousedown', mouseDown, false);
 canvas.addEventListener('mousemove', mouseMove, false);
 canvas.addEventListener('mouseup', mouseUp, false);
