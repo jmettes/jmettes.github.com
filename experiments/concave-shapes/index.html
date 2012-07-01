@@ -107,11 +107,11 @@ function mouseDown (evt) {
   draw.width = draw.width;
   ctx2.beginPath();
 //  ctx2.strokeStyle = "#ffffff";
-  ctx2.moveTo(evt.offsetX, evt.offsetY);
+  ctx2.moveTo(evt.clientX, evt.clientY);
 
   mousedown = true;
-  _polyWidth = _endX = _mouseLastX = evt.offsetX;
-  _polyHeight = _endY = _mouseLastY = evt.offsetY;
+  _polyWidth = _endX = _mouseLastX = evt.clientX;
+  _polyHeight = _endY = _mouseLastY = evt.clientY;
 
   scaledPoints = [];
   _objPoints = [];
@@ -120,45 +120,45 @@ function mouseDown (evt) {
 }
 
 function mouseMove (evt) {
-  var dist_x = evt.offsetX - _mouseLastX;
-  var dist_y = evt.offsetY - _mouseLastY;
+  var dist_x = evt.clientX - _mouseLastX;
+  var dist_y = evt.clientY - _mouseLastY;
 
   if (dist_x * dist_x + dist_y * dist_y > _pixel_dist * _pixel_dist) {
     if(mousedown) {
-      ctx2.lineTo(evt.offsetX, evt.offsetY);
+      ctx2.lineTo(evt.clientX, evt.clientY);
       ctx2.stroke();
     }
 
-    _objPoints.push({ x: evt.offsetX, y: evt.offsetY });
-    _mouseLastX = evt.offsetX;
-    _mouseLastY = evt.offsetY;
+    _objPoints.push({ x: evt.clientX, y: evt.clientY });
+    _mouseLastX = evt.clientX;
+    _mouseLastY = evt.clientY;
 
-    if (evt.offsetX < 0 && _polyWidth <= 0) {
-      if (_polyWidth < evt.offsetX) {
-        _polyWidth = evt.offsetX;
+    if (evt.clientX < 0 && _polyWidth <= 0) {
+      if (_polyWidth < evt.clientX) {
+        _polyWidth = evt.clientX;
       }
     } else {
-      if (_polyWidth < evt.offsetX) {
-        _polyWidth = evt.offsetX;
+      if (_polyWidth < evt.clientX) {
+        _polyWidth = evt.clientX;
       }
     }
 
-    if(evt.offsetY < 0 && _polyHeight <= 0) {
-      if (_polyHeight < evt.offsetY) {
-        _polyHeight = evt.offsetY;
+    if(evt.clientY < 0 && _polyHeight <= 0) {
+      if (_polyHeight < evt.clientY) {
+        _polyHeight = evt.clientY;
       }
     } else {
-      if (_polyHeight < evt.offsetY) {
-        _polyHeight = evt.offsetY;
+      if (_polyHeight < evt.clientY) {
+        _polyHeight = evt.clientY;
       }
     }
 
-    if (_endX > evt.offsetX) {
-      _endX = evt.offsetX;
+    if (_endX > evt.clientX) {
+      _endX = evt.clientX;
     }
 
-    if (_endY > evt.offsetY) {
-      _endY = evt.offsetY;
+    if (_endY > evt.clientY) {
+      _endY = evt.clientY;
     }
   }
 }
