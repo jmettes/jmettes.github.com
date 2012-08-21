@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Schreeuwkop"
+title: “Schreeuwkop”
 ---
 
-In 2008, I had an art assignment to make a self-portrait. I decided to create a high contrast on a black A4 sheet.
+In 2008, I made a self-portrait stencil out of a black A4 sheet for an art assignment.
 
-![Original stencil](https://lh3.googleusercontent.com/-GtlJ3cGzk5Y/T8wvlQO5LWI/AAAAAAAAAYM/pt5pzQ10FeI/w400/schreeuwkop-stencil.jpg)
+![Original stencil](https://lh3.googleusercontent.com/-GtlJ3cGzk5Y/T8wvlQO5LWI/AAAAAAAAAak/OqimhIIIJaY/w500/schreeuwkop-stencil.jpg)
 
-Canberra Institute of Technology liked it enough to get me to paint it on a wall of the arts department!
+My teachers liked it enough to get me to paint it on a wall of the arts department!
 
-![Self-portrait Mural](https://lh6.googleusercontent.com/-veAt5WgiXwY/Tsiaic8QB1I/AAAAAAAAAUA/5pH-IoYGQHI/w400/mural.jpg)
+![Self-portrait Mural](https://lh6.googleusercontent.com/-veAt5WgiXwY/Tsiaic8QB1I/AAAAAAAAAak/_f3hze1hSbM/w500/mural.jpg)
