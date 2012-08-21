@@ -6,6 +6,6 @@ Here's a demo of [some code](https://github.com/jmettes/concaveShapesJS) I porte
 
 Click and drag below to draw shapes and render them as [Box2D](http://code.google.com/p/box2dweb/) physics objects.
 
-<iframe src="/experiments/concave-shapes/" width="400" height="410" scrolling="no">bla</iframe>
+<iframe src="/experiments/concave-shapes/" width="500" height="410" scrolling="no">bla</iframe>
 
 What makes this cool is the ability to draw concave polygon shapes. Box2D can't do this natively, but that's solved here by [decomposing concave shapes](http://www.flipcode.com/archives/Efficient_Polygon_Triangulation.shtml) into a mesh of triangles.

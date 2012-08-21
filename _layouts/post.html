@@ -6,13 +6,15 @@
 <link title="jmettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link rel="shortcut icon" href="/favicon.ico" />
-<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Permanent+Marker&v1'/>
 </head>
 <body>
 <div id="wrapper">
+<div id="sidebar">
 <div id="bg"><a href="/"></a></div>
 {% include blurb.html %}
-<div class="clear"></div>
+{% include nav.html %}
+</div>
+<div id="posts">
 <div class="post">
 <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
 <div id="content">
@@ -25,6 +27,7 @@
 {% if page.previous.url %}
 <a href="{{ page.previous.url }}" id="previous">Older &gt;</a>
 {% endif %}
+</div>
 </div>
 </div>
 </div>
