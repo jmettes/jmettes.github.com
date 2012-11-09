@@ -20,6 +20,11 @@ html, body {
 <canvas id="canvas" width="500" height="410"></canvas>
 <canvas id="draw" width="500" height="410"></canvas>
 
+
+<p>Ported to JavaScript from ActionScript <a href="http://rant.yadurajiv.com/yadurajiv/2011/01/694">by Yadurajiv</a>. Click and drag below to draw shapes and render them as <a href="http://code.google.com/p/box2dweb/">Box2D</a> physics objects.</p>
+<p>What makes this cool is the ability to draw concave polygon shapes. Box2D can't do this natively, but that's solved here by <a href="http://www.flipcode.com/archives/Efficient_Polygon_Triangulation.shtml">decomposing concave shapes</a> into a mesh of triangles.</p>
+
+
 <script src="Box2d.min.js"></script>
 <script src="bourke.js"></script>
 <script src="triangulate.js"></script>
