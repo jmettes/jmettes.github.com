@@ -15,6 +15,6 @@ My first time filming/editing (I used Premiere Pro)! The video highlights the bu
 
 My recording setup: one camera on a tripod, two tablets with chairs/boxes as make-shift stands, a mic, a laptop running [Audacity](http://audacity.sourceforge.net/) and a bunch of desk lamps.
 
-![Little Gem schematic](https://lh5.googleusercontent.com/-Ulysv4cbMLc/ULICE8lL0XI/AAAAAAAAAoI/HutMEOq7Uqw/s500/schematic.png)
+![Little Gem schematic](https://lh5.googleusercontent.com/-RC456g4X-70/UNBBvetb2qI/AAAAAAAAApg/DnxFLrb_zAA/s512/amp-diagram.png)
 
-The schematic I used for building the amp. The main component of interest here is the [LM386](http://en.wikipedia.org/wiki/LM386) op-amp chip - a popular choice for battery powered amps.
+The schematic I used for building the amp. The main component of interest is the [LM386](http://en.wikipedia.org/wiki/LM386) op-amp chip to be inserted in socket - a popular choice for battery powered amps.
