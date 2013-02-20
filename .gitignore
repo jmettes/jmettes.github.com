@@ -11,3 +11,6 @@ Icon
 .Trashes
 
 _site/
+
+# development files for archival purposes
+dev/
