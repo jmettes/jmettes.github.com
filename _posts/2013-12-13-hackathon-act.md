@@ -11,8 +11,8 @@ At [Hackathon ACT '13](http://hact.org), I teamed up with four other coders, des
 
 Our aim was to make queuing quicker, and replacing paperwork for corporate and government service desks. Our app won an award for Best Innovation for Government.
 
-![Passing out the slide guitar planks](https://lh3.googleusercontent.com/-hGSm4L0f6QA/UqpOZXr7faI/AAAAAAAAAzk/667oW0m3kD8/w500/formaq.png)
+![FormaQ web app](https://lh3.googleusercontent.com/-hGSm4L0f6QA/UqpOZXr7faI/AAAAAAAAAzk/667oW0m3kD8/w500/formaq.png)
 
 The project involved making an iPhone app for customers to fill in forms while queuing. As well as a web app for handling the filled out forms.
 
-![Passing out the slide guitar planks](https://lh3.googleusercontent.com/-Nfw7P3lvYOo/UqpOZCedItI/AAAAAAAAAzg/WFDYnwAa5cU/iphone-app.png)
+![FormaQ iPhone app](https://lh4.googleusercontent.com/-P_C-ttm14TU/Uqppz26cDUI/AAAAAAAAA1I/DG2vzpC9LlQ/w150/formaq-iphone-app.png)
