@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>{{ page.title }} - jmettes</title>
-<link title="jmettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
+<title>{{ page.title }} - Jonathan Mettes</title>
+<link title="Jonathan Mettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <!--[if IE]><script src="/js/html5.js"></script><![endif]-->
@@ -12,8 +12,7 @@
 {% include sidebar.html %}
 <div id="articles">
 <article>
-<h2>{{ page.title }}</h2>
-<a href="{{ page.url }}" title="{{ page.title }}" class="permalink">#</a>
+<h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
 {{ content }}
 <div id="paginate">
 {% if page.next.url %}

@@ -48,29 +48,32 @@ p code {
 #about {
   margin-left: 30px;
 }
+#about h1 {
+  font-size: 0.96em;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.5em;
+}
 #about p {
   margin: 0;
   text-shadow: 1px 1px #fff;
 }
-#about p:first-child {
-  font-size: 16px;
-  margin-bottom: 5px;
-  letter-spacing: 0.1em;
+#about #first {
+  font-size: 1em;
 }
-#about p:first-child + p {
-  font-size: 11px;
-  padding-bottom: 4px;
-  word-spacing: 0.2em;
+#about #second {
+  margin-top: .5em;
+  font-size: 0.9em;
 }
-#about p:first-child + p + p {
+/*#about p:first-child + p + p {
   font-size: 11px;
   letter-spacing: 0;
   word-spacing: 0.1em;
   width: 155px;
-}
+}*/
 #links {
   width: 155px;
-  margin: 2.5em 0 1em 30px;
+  margin: 1em 0 1em 30px;
 }
 #links img {
   padding: 0 1px;
@@ -80,6 +83,7 @@ p code {
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   margin-left: 30px;
+  margin-top: 2.5em;
 }
 #search input[type="text"] {
   border: 2px solid #333;

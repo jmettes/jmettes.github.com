@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>{{ page.title }}</title>
-<link title="jmettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
+<title>Jonathan Mettes</title>
+<link title="Jonathan Mettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
@@ -31,13 +31,12 @@
 </div>
 {% if page.url == "/index.html" %}
 <script type="text/javascript">
-var fetching = false;
 var page = 2;
-var loading = $('#paginate')
-  .html('<img src=\"/images/loading.gif\"/><br/>Loading...');
+var loading = $('#paginate').html('<img src=\"/images/loading.gif\"/><br/>Loading...');
+var fetching = false;
 
-$(window).bind('scroll', function() {
-  if ($(window).scrollTop() >= $(document).height() - $(window).height() - 120 && !fetching) {
+$(document).scroll(function(e) {
+  if (($(window).scrollTop() >= $(document).height() - $(window).height() - 500) && !fetching) {
     fetching = true;
     $.ajax({
       url: '/page' + page,
@@ -45,9 +44,10 @@ $(window).bind('scroll', function() {
         $(loading).remove();
         $(data).find('article').appendTo('#articles');
         $(loading).appendTo('#articles');
+        fetching = false;
       },
       error: function(e) {
-        $(window).unbind('scroll');
+        $(document).unbind('scroll');
         $(loading).remove();
 
         if (e.status != 404) {
@@ -56,9 +56,9 @@ $(window).bind('scroll', function() {
       }
     }, 2000);
     page++;
-    fetching = false;
   }
 });
+
 
 var _gaq=[["_setAccount","UA-36175883-1"],["_trackPageview"]];
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;

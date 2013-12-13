@@ -1,6 +1,6 @@
 ---
 layout: post
-title: canvasjumper - JavaScript game
+title: canvasjumper - JavaScript platformer game
 ---
 
 [![canvasjumper screenshot](https://lh4.googleusercontent.com/-AWHsCfQ7Uzc/UDHEfpi4N_I/AAAAAAAAAak/1GzhSJWsVTY/s500/canvasjumper-screenshot.png)](http://canvasjumper.com)
