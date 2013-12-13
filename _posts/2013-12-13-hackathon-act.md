@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Weekend hackathon at HACT '13
+title: Award winning app at HACT '13
 ---
 
 ![Passing out the slide guitar planks](https://lh5.googleusercontent.com/-K_leSuSbpMU/UqpVn58ZKSI/AAAAAAAAA0I/JWpquM5w-Ak/w500/hackathon.jpg)
