@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page.title }} - Jonathan Mettes</title>
 <link title="Jonathan Mettes - Atom" type="application/atom+xml" rel="alternate" href="/atom.xml" />
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Raleway:100' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="/favicon.ico" />
 <!--[if IE]><script src="/js/html5.js"></script><![endif]-->
+<!--[if lt IE 9]>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
 </head>
 <body>
-{% include sidebar.html %}
+<div id="header">
+<a href="/"><img src="../images/drawn-circle-trn.png" id="logo" /></a>
+<h1><a href="mailto:jonathan@jmettes.com">Jonathan Mettes</a></h1>
+<p id="first">I'm a software dev and a muso</p>
+<p id="second">Here's a collection of things I make and do</p>
+<p id="third">More: <a href="mailto:jonathan@jmettes.com">email</a> | <a href="http://soundcloud.com/jmettes">soundcloud</a> |
+ <a href="http://youtube.com/user/jonathanmettes/videos">youtube</a> | <a href="https://github.com/jmettes">github</a></p>
+</div>
 <div id="articles">
 <article>
 <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
