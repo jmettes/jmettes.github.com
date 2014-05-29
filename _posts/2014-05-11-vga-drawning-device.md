@@ -7,10 +7,10 @@ title: VGA Drawing Device
 
 For a group assignment at uni, we used a [Spartan 3E FPGA board](http://www.xilinx.com/products/boards-and-kits/HW-SPAR3E-SK-US-G.htm) to create a drawing machine that lets you draw pixel art onto a VGA computer monitor.
 
-<p class="image"><img src="https://lh5.googleusercontent.com/-_G0rVumK5Dk/U28kIjs1uhI/AAAAAAAAA94/OPCMqrN5IXA/w850/verilog.png" /></p>
+<p class="image"><img src="https://lh5.googleusercontent.com/-_G0rVumK5Dk/U28kIjs1uhI/AAAAAAAABB0/FXA8XY4uxjs/w850/verilog.png" /></p>
 
 We used verilog code modules to create the system circuitry on the FPGA for the drawing device.
 
 <p class="image"><img src="https://lh6.googleusercontent.com/-58c7KYrfqZ4/U28klSP3NEI/AAAAAAAAA-A/mTMmE6-chG8/w850/block-diagram.png" /></p>
 
-Above is the block diagram for our finished system. Key aspects are the state machine for the different functions, ROM for saved pictures, a frame buffer, and a VGA signal timer.
+Above is the block diagram for our finished system. Key components include a state machine for the different functions, ROM for saved pictures, a frame buffer storing pixel data, and timers to generate VGA signals.
